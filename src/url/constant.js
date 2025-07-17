@@ -1,1 +1,1 @@
-export const baseUrl = "http://localhost:3000"
+export const baseUrl = "https://job-portal-backend-2x0p.onrender.com"
