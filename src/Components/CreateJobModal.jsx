@@ -55,6 +55,10 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
       description: formData.description,
     };
 
+    if(job.description.length < 250){
+      alert("Please Enter Minimum 2 Lines or 250 Letters ");
+      return;
+    }
     try {
       const res = await fetch(`${baseUrl}/api/jobs/create`, {
         method: "POST",
@@ -211,58 +215,53 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
             </div>
           </div>
 
-          {/* Row 4 */}            <div className="flex flex-col">
-              <label className="text-sm font-medium mb-1">Company Logo</label>
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleLogoUpload}
-                className="p-2 border bg-blue-50 rounded-md"
-              />
-              {/* {formData.companyLogo && (
-                <img
-                  src={formData.companyLogo}
-                  alt="Logo Preview"
-                  className="mt-2 h-12 w-auto object-contain"
-                />
-              )} */}
-            </div>
+
           <div>
             <label className="text-sm font-medium mb-1 block">Job Description</label>
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Describe the role, responsibilities, and expectations"
+              placeholder="minimum 250 letters....Describe the role, responsibilities, and expectations...."
               className="w-full p-2 border rounded-md h-28 resize-none text-sm"
             ></textarea>
           </div>
 
           {/* Row 5: Logo Upload and Buttons */}
-          <div className="flex items-end justify-between mt-4">
-                          <button
-                type="button"
-                onClick={() => {
-                  console.log("💾 Draft Saved", formData);
-                  alert("Saved as Draft");
-                  onClose();
-                }}
-                className="px-4 py-2 border border-black text-gray-700 rounded-md hover:bg-gray-100"
-              >
-                Save Draft ⌄
-              </button>
+          <div className="flex justify-between items-center mt-4 w-full">
+  {/* Left: Save Draft */}
+  <button
+    type="button"
+    onClick={() => {
+      console.log("💾 Draft Saved", formData);
+      alert("Saved as Draft");
+      onClose();
+    }}
+    className="px-4 py-2 border border-black text-gray-700 rounded-md hover:bg-gray-100"
+  >
+    Save Draft ⌄
+  </button>
 
+  {/* Center: Company Logo */}
+  <div className="flex flex-col items-center">
+    <label className="text-sm font-medium mb-1">Company Logo</label>
+    <input
+      type="file"
+      accept="image/*"
+      onChange={handleLogoUpload}
+      className="p-2 max-w-[200px] bg-blue-500 text-white rounded-md cursor-pointer"
+    />
+  </div>
 
-            <div className="flex gap-2">
+  {/* Right: Publish */}
+  <button
+    type="submit"
+    className="px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
+  >
+    Publish »
+  </button>
+</div>
 
-              <button
-                type="submit"
-                className="px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
-              >
-                Publish »
-              </button>
-            </div>
-          </div>
         </form>
       </div>
     </div>

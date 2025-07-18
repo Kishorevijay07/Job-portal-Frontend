@@ -25,7 +25,7 @@ const JobCard = ({ companyLogo, title, updateAt, exp, mode, desc ,salary }) => {
   
   console.log(updateAt)
   return (
-    <div className="bg-white shadow-md p-3 m-5 w-[300px] h-[340px] gap-6px rounded-[12px]">
+    <div className="bg-white shadow-md p-2 m-1 w-[300px] h-[340px] gap-6px rounded-[12px]">
       <div className="flex justify-between items-start">
         <div className="w-[72px] h-[72px] bg-white shadow-md rounded-[12px] flex items-center justify-center">
             <img src={companyLogo} alt="Company" className="w-10 h-10" />
