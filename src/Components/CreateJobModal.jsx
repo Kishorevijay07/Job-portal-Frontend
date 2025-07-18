@@ -54,11 +54,15 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
       deadline: formData.deadline,
       description: formData.description,
     };
-
-    if(job.description.length < 250){
-      alert("Please Enter Minimum 2 Lines or 250 Letters ");
+        console.log("Dsc length ",job.description.length)
+        console.log(job.description.length < 200)
+    if((job.description.length > 200) || (job.description.length < 180)){
+      console.log("Dsc length ",job.description.length)
+      alert(`Please Enter Minimum 180 to 200 Letters , Currently job description length ${job.description.length}`);
       return;
     }
+     console.log("Dsc length ",job.description.length)
+    
     try {
       const res = await fetch(`${baseUrl}/api/jobs/create`, {
         method: "POST",
@@ -223,7 +227,7 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="Minimum 2 lines or 250 letters....Describe the role, responsibilities, and expectations...."
+              placeholder="Minimum 180 to 200 letters....Describe the role, responsibilities, and expectations...."
               className="w-full p-2 border rounded-md h-28 resize-none text-sm"
             ></textarea>
           </div>
