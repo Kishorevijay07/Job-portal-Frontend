@@ -91,9 +91,10 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
           ×
         </button>
 
-        <h2 className="text-xl font-semibold text-center mb-2">
-          Create Job Opening
-        </h2>
+<h2 className="text-xl font-semibold text-center -mt-5 mb-6">
+  Create Job Opening
+</h2>
+
 
         <form className="space-y-1" onSubmit={handleSubmit}>
           {/* Row 1 */}
