@@ -193,7 +193,7 @@ const NavbarWithSearch = () => {
             ))
           ) : (
             <div className="text-center col-span-full text-gray-500 text-sm">
-              No jobs found matching your criteria.
+              Please Wait...Loading...
             </div>
           )}
         </div>
