@@ -91,9 +91,9 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
           ×
         </button>
 
-<h2 className="text-xl font-semibold text-center -mt-5 mb-6">
-  Create Job Opening
-</h2>
+        <h2 className="text-xl font-semibold text-center -mt-5 mb-6">
+          Create Job Opening
+        </h2>
 
 
         <form className="space-y-1" onSubmit={handleSubmit}>
@@ -223,7 +223,7 @@ const CreateJobModal = ({ onClose, refreshJobs }) => {
               name="description"
               value={formData.description}
               onChange={handleChange}
-              placeholder="minimum 250 letters....Describe the role, responsibilities, and expectations...."
+              placeholder="Minimum 2 lines or 250 letters....Describe the role, responsibilities, and expectations...."
               className="w-full p-2 border rounded-md h-28 resize-none text-sm"
             ></textarea>
           </div>
